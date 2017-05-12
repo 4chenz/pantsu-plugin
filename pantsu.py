@@ -1,6 +1,6 @@
 import re
 from helpers import retrieve_url, download_file
-from novaprinter import prettyPrinter
+from novaprinter import anySizeToBytes
 
 class pantsu(object):
     url = 'https://nyaa.pantsu.cat'
@@ -36,10 +36,7 @@ class pantsu(object):
                 size=size[0]#.replace('[','').replace(']','')
                 seeds=re.findall(r'<b class="text-success">(.*?)</b>', regex_things[x], re.M|re.I|re.S)[0]
                 leech=re.findall(r'<b class="text-danger">(.*?)</b>', regex_things[x], re.M|re.I|re.S)[0]
-                print(Link+'|'+name+'|'+size+'|'+seeds+'|'+leech+'|'+pantsu.engine_url)
+                print(Link+'|'+name+'|'+str(anySizeToBytes(size))+'|'+seeds+'|'+leech+'|'+pantsu.engine_url)
             page+=1
             if len(regex_things) < 50:
                 break
-##pantsu.search('search','desu','games')
-
-
