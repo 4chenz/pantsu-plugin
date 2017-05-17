@@ -7,7 +7,6 @@ class pantsu(object):
     url = 'https://nyaa.pantsu.cat'
     name = 'pantsu'
     supported_categories = {'all': '_',
-                            'all': '_',
                             'anime': '3_',
                             'books': '4_',
                             'music': '2_',
