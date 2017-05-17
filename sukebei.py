@@ -7,10 +7,9 @@ class sukebei(object):
     url = 'https://sukebei.pantsu.cat'
     name = 'sukebei'
     supported_categories = {'all': '_',
-                            'anime': '3_',
+                            'anime': '1_1',
                             'books': '4_',
-                            'pictures': '6_',
-                            'hentai': '1_4',
+                            'pictures': '1_',
                             'games': '1_3'}
     engine_url='sukebei'
     def __init__(self):
