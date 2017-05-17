@@ -7,6 +7,7 @@ class pantsu(object):
     url = 'https://nyaa.pantsu.cat'
     name = 'pantsu'
     supported_categories = {'all': '_',
+                            'all': '_',
                             'anime': '3_',
                             'books': '4_',
                             'music': '2_',
@@ -21,7 +22,7 @@ class pantsu(object):
     def search(self, what, cat='all'):
         page=1
         while True:
-            url = 'https://nyaa.pantsu.cat/search/{}?c='.format(page)+pantsu.supported_categories[cat]+'&q='+what+'&max=50'
+            url = 'https://nyaa.pantsu.cat/search/{}?c='.format(page)+self.supported_categories[cat]+'&q='+what+'&max=50'
             print(url)
             url = retrieve_url(url)
             regex_things = re.findall(r'<tr class="torrent-info(.*?)</tr>', url, re.M|re.I|re.S)
@@ -34,7 +35,7 @@ class pantsu(object):
                 dic['size']=re.findall(r'<td class="hidden-xs filesize">(.*?)</td>', regex_things[x], re.M|re.I|re.S)[0]#.replace('[','').replace(']','')
                 dic['seeds']=re.findall(r'<b class="text-success">(.*?)</b>', regex_things[x], re.M|re.I|re.S)[0]
                 dic['leech']=re.findall(r'<b class="text-danger">(.*?)</b>', regex_things[x], re.M|re.I|re.S)[0]
-                dic['engine_url']=pantsu.engine_url
+                dic['engine_url']=self.engine_url
                 prettyPrinter(dic)
             page+=1
             if len(regex_things) < 50:
