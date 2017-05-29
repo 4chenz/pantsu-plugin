@@ -20,28 +20,18 @@ class sukebei(object):
         page=1
         per_page=100
         while True:
-            url = 'https://sukebei.pantsu.cat/search/{}?c='.format(page)+self.supported_categories[cat]+'&q='+what+'&max='+str(per_page)
-            print(url)
-            url = retrieve_url(url)
-            regex_things = re.findall(r'<tr class="torrent-info(.*?)</tr>', url, re.M|re.I|re.S)
-            for x in range(len(regex_things)):
+            url = 'https://sukebei.pantsu.cat/api/search/{}?c='.format(page)+self.supported_categories[cat]+'&q='+what+'&max='+str(per_page)
+            link = json.loads(retrieve_url(url))
+            for animu in link:
                 dic={}
-                for url in re.findall(r'href=[\'"]?([^\'" >]+)', regex_things[x]):
-                    if 'magnet' in url:
-                        dic['link']=url
-                dic['name'] = re.findall(r'<td class="name">(.*?)</a>', regex_things[x], re.M|re.I|re.S)[0].split('\n')[2].replace('                      ', '')
-                dic['size'] = re.findall(r'<td class="hidden-xs nowrap">(.*?)</td>', regex_things[x], re.M|re.I|re.S)[0]
-                dic['seeds']= re.findall(r'<b class="text-success">(.*?)</b>', regex_things[x], re.M|re.I|re.S)
-                if dic['seeds'] == []:
-                    dic['seeds']=-1
-                    dic['leech']=-1
-                else:
-                    dic['leech']= re.findall(r'<b class="text-danger">(.*?)</b>', regex_things[x], re.M|re.I|re.S)[0]
-                    dic['seeds']=dic['seeds'][0]
+                dic['link'] = animu['magnet']
+                dic['name'] = animu['name']
+                dic['size'] = animu['filesize']
+                dic['seeds']= animu['seeders']
+                dic['leech']= animu['leechers']
                 dic['engine_url']=self.engine_url
                 prettyPrinter(dic)
             page+=1
-            if len(regex_things) < per_page:
+            if len(link) < per_page:
+                print(len(link))
                 break
-
-
