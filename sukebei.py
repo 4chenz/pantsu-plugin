@@ -3,6 +3,7 @@
 import re
 from helpers import retrieve_url, download_file
 from novaprinter import prettyPrinter
+import json
 class sukebei(object):
     url = 'https://sukebei.pantsu.cat'
     name = 'sukebei'
