@@ -7,4 +7,4 @@ https://raw.githubusercontent.com/4chenz/pantsu-plugin/master/pantsu.py
 
 https://raw.githubusercontent.com/4chenz/pantsu-plugin/master/sukebei.py
 
-Working for now.
+Uses pantsu api now, should stay working for a while.
