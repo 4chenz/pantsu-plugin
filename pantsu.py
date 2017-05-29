@@ -23,7 +23,7 @@ class pantsu(object):
         page=1
         per_page=100
         while True:
-            url = 'https://nyaa.pantsu.cat/api/search/{}?c='.format(page)+pantsu.supported_categories[cat]+'&q='+what+'&max='+str(per_page)
+            url = 'https://nyaa.pantsu.cat/api/search/{}?c='.format(page)+self.supported_categories[cat]+'&q='+what+'&max='+str(per_page)
             link = json.loads(retrieve_url(url))
             for animu in link:
                 dic={}
@@ -32,7 +32,7 @@ class pantsu(object):
                 dic['size'] = animu['filesize']
                 dic['seeds']= animu['seeders']
                 dic['leech']= animu['leechers']
-                dic['engine_url']=pantsu.engine_url
+                dic['engine_url']=self.engine_url
                 prettyPrinter(dic)
             page+=1
             if len(link) < per_page:
