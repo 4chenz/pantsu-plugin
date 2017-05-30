@@ -1,4 +1,4 @@
-#VERSION: 1.05
+#VERSION: 1.06
 #AUTHORS: anon
 import re
 from helpers import retrieve_url, download_file
@@ -21,7 +21,7 @@ class sukebei(object):
         page=1
         per_page=100
         while True:
-            url = 'https://sukebei.pantsu.cat/api/search/{}?c='.format(page)+self.supported_categories[cat]+'&q='+what+'&max='+str(per_page)
+            url = 'https://sukebei.pantsu.cat/api/search/'+str(page)+'?c='+self.supported_categories[cat]+'&q='+what+'&max='+str(per_page)
             link = json.loads(retrieve_url(url))
             for animu in link:
                 dic={}
