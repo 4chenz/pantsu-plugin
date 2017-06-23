@@ -1,4 +1,4 @@
-#VERSION: 1.06
+#VERSION: 1.07
 #AUTHORS: anon
 import re
 from helpers import retrieve_url, download_file
@@ -27,7 +27,7 @@ class sukebei(object):
                 dic={}
                 dic['link'] = animu['magnet']
                 dic['name'] = animu['name']
-                dic['size'] = animu['filesize']
+                dic['size'] = str(animu['filesize'])+'B'
                 dic['seeds']= animu['seeders']
                 dic['leech']= animu['leechers']
                 dic['engine_url']=self.engine_url
