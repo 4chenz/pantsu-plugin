@@ -1,4 +1,4 @@
-#VERSION: 1.07
+#VERSION: 1.08
 #AUTHORS: anon
 import re
 from helpers import retrieve_url, download_file
@@ -21,7 +21,7 @@ class pantsu(object):
         print(download_file(info))
     def search(self, what, cat='all'):
         page=1
-        per_page=100
+        per_page=50#don't change for now
         while True:
             url = 'https://nyaa.pantsu.cat/api/search/'+str(page)+'?c='+self.supported_categories[cat]+'&q='+what+'&max='+str(per_page)
             link = json.loads(retrieve_url(url))
