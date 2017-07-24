@@ -1,4 +1,4 @@
-#VERSION: 1.09
+#VERSION: 1.10
 #AUTHORS: anon
 import re
 from helpers import retrieve_url, download_file
@@ -21,9 +21,9 @@ class sukebei(object):
         page=1
         per_page=100
         while True:
-            url = 'https://sukebei.pantsu.cat/api/search/'+str(page)+'?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)
+            url = 'https://sukebei.pantsu.cat/api/search/?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)+'&page='+str(page)
             link = json.loads(retrieve_url(url))
-            for animu in link:
+            for animu in link['torrents']:
                 dic={}
                 dic['link'] = animu['magnet']
                 dic['name'] = animu['name']
@@ -34,5 +34,5 @@ class sukebei(object):
                 prettyPrinter(dic)
             page+=1
             if len(link) < per_page:
-                print(len(link))
+##                print(len(link))
                 break
