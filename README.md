@@ -9,4 +9,4 @@ https://raw.githubusercontent.com/4chenz/pantsu-plugin/master/sukebei.py
 
 Uses pantsu api now, should stay working for a while.
 
-Report broken things please.
+Report broken things please. I didn't even notice the sukebei issue for a while.
