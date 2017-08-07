@@ -1,4 +1,4 @@
-#VERSION: 1.10
+#VERSION: 1.11
 #AUTHORS: anon
 import re
 from helpers import retrieve_url, download_file
@@ -23,7 +23,7 @@ class pantsu(object):
         page=1
         per_page=100
         while True:
-            url = 'https://nyaa.pantsu.cat/api/search/?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)+'&page='+str(page)
+            url = self.url+'/api/search/?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)+'&page='+str(page)
             link = json.loads(retrieve_url(url))
             for animu in link['torrents']:
                 dic={}
@@ -35,6 +35,6 @@ class pantsu(object):
                 dic['engine_url']=self.engine_url
                 prettyPrinter(dic)
             page+=1
-            if len(link) < per_page:
+            if len(link['torrents']) < per_page:
 ##                print(len(link))
                 break
