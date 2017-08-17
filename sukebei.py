@@ -21,7 +21,7 @@ class sukebei(object):
         page=1
         per_page=100
         while True:
-            url = self.url+/api/search/?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)+'&page='+str(page)
+            url = self.url+'/api/search/?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)+'&page='+str(page)
             link = json.loads(retrieve_url(url))
             for animu in link['torrents']:
                 dic={}
