@@ -1,4 +1,4 @@
-#VERSION: 1.11
+#VERSION: 1.12
 #AUTHORS: anon
 import re
 from helpers import retrieve_url, download_file
