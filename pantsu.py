@@ -1,4 +1,4 @@
-#VERSION: 1.15
+#VERSION: 1.16
 #AUTHORS: anon
 import re
 from helpers import retrieve_url, download_file
@@ -38,5 +38,5 @@ class pantsu(object):
                 dic['size'] = str(animu['filesize'])+'B'
                 dic['seeds']= animu['seeders']
                 dic['leech']= animu['leechers']
-                dic['engine_url']=pantsu.engine_url
+                dic['engine_url']=self.engine_url
                 prettyPrinter(dic)
