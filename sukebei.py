@@ -1,6 +1,5 @@
-#VERSION: 1.16
+#VERSION: 1.17
 #AUTHORS: anon
-import re
 from helpers import retrieve_url, download_file
 from novaprinter import prettyPrinter
 import json
