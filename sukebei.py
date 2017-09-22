@@ -1,4 +1,4 @@
-#VERSION: 1.17
+#VERSION: 1.18
 #AUTHORS: anon
 from helpers import retrieve_url, download_file
 from novaprinter import prettyPrinter
@@ -22,7 +22,7 @@ class sukebei(object):
         count = json.loads(retrieve_url(url))['totalRecordCount']
         pages=count/per_page
         
-        if per_page%count != 0:
+        if count%per_page != 0:
             pages=int(count/per_page)+1
             
         for page, x in enumerate(range(pages),start=1):
