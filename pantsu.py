@@ -20,7 +20,7 @@ class pantsu(object):
         print(download_file(info))
     def search(self, what, cat='all'):
         per_page=100
-        url = pantsu.url+'/api/search/?c='+pantsu.supported_categories[cat]+'&q='+what+'&limit='+str(1)+'&page='+str(1)
+        url = self.url+'/api/search/?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(1)+'&page='+str(1)
         count = json.loads(retrieve_url(url))['totalRecordCount']
         pages=count/per_page
         
@@ -28,7 +28,7 @@ class pantsu(object):
             pages=int(count/per_page)+1
             
         for page, x in enumerate(range(pages),start=1):
-            url = pantsu.url+'/api/search/?c='+pantsu.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)+'&page='+str(page)
+            url = self.url+'/api/search/?c='+self.supported_categories[cat]+'&q='+what+'&limit='+str(per_page)+'&page='+str(page)
             link = json.loads(retrieve_url(url))
             for animu in link['torrents']:
                 dic={}
@@ -37,5 +37,5 @@ class pantsu(object):
                 dic['size'] = str(animu['filesize'])+'B'
                 dic['seeds']= animu['seeders']
                 dic['leech']= animu['leechers']
-                dic['engine_url']=pantsu.engine_url
+                dic['engine_url']=self.engine_url
                 prettyPrinter(dic)
