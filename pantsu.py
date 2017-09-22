@@ -1,4 +1,4 @@
-#VERSION: 1.18
+#VERSION: 1.20
 #AUTHORS: anon
 from helpers import retrieve_url, download_file
 from novaprinter import prettyPrinter
@@ -37,5 +37,6 @@ class pantsu(object):
                 dic['size'] = str(animu['filesize'])+'B'
                 dic['seeds']= animu['seeders']
                 dic['leech']= animu['leechers']
+                dic['desc_link']=self.url+'/view/'+str(animu['id'])
                 dic['engine_url']=self.engine_url
                 prettyPrinter(dic)
