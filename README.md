@@ -1,5 +1,5 @@
 # pantsu-plugin
-https://nyaa.pantsu.cat/ and https://sukebei.pantsu.cat/ qbittorrent search plugins
+https://nyaa.net and https://sukebei.nyaa.net/ qbittorrent search plugins
 
 Install links:
 
