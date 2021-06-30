@@ -1,10 +1,10 @@
-#VERSION: 1.20
+#VERSION: 1.21
 #AUTHORS: anon
 from helpers import retrieve_url, download_file
 from novaprinter import prettyPrinter
 import json
 class pantsu(object):
-    url = 'https://nyaa.pantsu.cat'
+    url = 'https://nyaa.net'
     name = 'pantsu'
     supported_categories = {'all': '_',
                             'anime': '3_',
