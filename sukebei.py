@@ -1,10 +1,10 @@
-#VERSION: 1.20
+#VERSION: 1.21
 #AUTHORS: anon
 from helpers import retrieve_url, download_file
 from novaprinter import prettyPrinter
 import json
 class sukebei(object):
-    url = 'https://sukebei.pantsu.cat'
+    url = 'https://sukebei.nyaa.net'
     name = 'sukebei'
     supported_categories = {'all': '_',
                             'anime': '1_1',
